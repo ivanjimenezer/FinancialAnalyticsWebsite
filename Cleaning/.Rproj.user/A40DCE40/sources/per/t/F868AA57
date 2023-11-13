@@ -1,0 +1,27 @@
+{
+    "id": "F868AA57",
+    "path": "Q:/Proyectos/ENFIH/datos/conjunto_de_datos_enfih_2019_csv/conjunto_de_datos_tmodulo_enfih_2019/conjunto_de_datos/Cleaning/guaratr.R",
+    "project_path": "guaratr.R",
+    "type": "r_source",
+    "hash": "4000569656",
+    "contents": "",
+    "dirty": false,
+    "created": 1698074962481.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "575,1",
+        "scrollLine": "566"
+    },
+    "folds": "10|34|22|0|\n24|58|39|0|\n42|67|55|0|\n57|85|70|0|\n72|42|81|0|\n83|27|88|0|\n91|29|96|0|\n",
+    "lastKnownWriteTime": 1698736830,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1698736831031,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,36 @@
+{
+    "debugBreakpointsState": {
+        "breakpoints": [
+            {
+                "id": 0,
+                "path": "Q:/Proyectos/ENFIH/datos/conjunto_de_datos_enfih_2019_csv/conjunto_de_datos_tmodulo_enfih_2019/conjunto_de_datos/Cleaning/guaratr.R",
+                "line_number": 165,
+                "function_steps": "",
+                "function_name": "toplevel",
+                "state": 1,
+                "editor_state": 1,
+                "editor_line_number": 165,
+                "is_pending_debug_completion": false,
+                "needs_updated_steps": true,
+                "type": 1,
+                "is_package_breakpoint": false,
+                "package_name": ""
+            },
+            {
+                "id": 1,
+                "path": "Q:/Proyectos/ENFIH/datos/conjunto_de_datos_enfih_2019_csv/conjunto_de_datos_tmodulo_enfih_2019/conjunto_de_datos/Cleaning/guaratr.R",
+                "line_number": 578,
+                "function_steps": "",
+                "function_name": "toplevel",
+                "state": 1,
+                "editor_state": 1,
+                "editor_line_number": 578,
+                "is_pending_debug_completion": false,
+                "needs_updated_steps": true,
+                "type": 1,
+                "is_package_breakpoint": false,
+                "package_name": ""
+            }
+        ]
+    }
+}

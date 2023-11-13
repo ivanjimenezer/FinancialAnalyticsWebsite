@@ -1,0 +1,27 @@
+{
+    "id": "F9215C7B",
+    "path": "Q:/Proyectos/ENFIH/datos/conjunto_de_datos_enfih_2019_csv/conjunto_de_datos_tmodulo_enfih_2019/conjunto_de_datos/Cleaning/riqueza.R",
+    "project_path": "riqueza.R",
+    "type": "r_source",
+    "hash": "2243488305",
+    "contents": "",
+    "dirty": false,
+    "created": 1698015517820.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "1105,0",
+        "scrollLine": "1094"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1698089695,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1698089695920,
+    "read_only": false,
+    "read_only_alternatives": []
+}
