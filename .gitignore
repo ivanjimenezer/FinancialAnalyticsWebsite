@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-**/Cleaning/datos/
+**/Cleaning/datos/*
 **/Backend/keys.py
 **/Backend/index.py
+**/Backend/practicas/*
