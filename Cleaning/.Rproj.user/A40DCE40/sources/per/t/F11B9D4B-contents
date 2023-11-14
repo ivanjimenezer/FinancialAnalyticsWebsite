@@ -9,7 +9,7 @@
 rm(list=ls(all=TRUE))
 options(digits = 17)
 # Establecer directorio de trabajo
-setwd("Q:/Proyectos/ENFIH/datos/conjunto_de_datos_enfih_2019_csv/conjunto_de_datos_tmodulo_enfih_2019/conjunto_de_datos/Cleaning")
+setwd("Q:/Proyectos/ENFIH/FinancialAnalyticsWebsite/Cleaning")
 work <- read.csv(file = "conjunto_de_datos_tmodulo_enfih_2019.csv", header=TRUE, sep=",", colClasses="character")
 work$LlaveVI <- paste(work$UPM_DIS, work$VIV_SEL, sep="")
 work$LlaveHO <- paste(work$UPM_DIS, work$VIV_SEL, work$HOGAR, sep="")
@@ -682,7 +682,31 @@ names(xs)<-c("llaveho","factor", "p4a8_1", "p4a8_2", "c_ingtra", "v_ingtra", "p1
  
 write.csv(ing_anual_x_hogar, file = "ingresoanual.csv", row.names = FALSE, col.names = TRUE)
 
+dataset1 <- ing_anual_x_hogar[, c("llaveho", "ing_total")]
 
+head(dataset1)
+
+dataset1$label <- 0
+dataset1$label  <- incomelabel_array
+head(dataset1)
+
+
+# Aggregate function to get count and mean
+result <- aggregate(ing_total ~ label, data = dataset1, FUN = function(x) c(count = length(x), mean = mean(x)))
+head(result)
+
+colnames(result) <- c( "RangoIngresos", "X")
+
+head(result)
+
+class(result)
+head(income_counts_df)
+# dataset2 <- result[, c("RangoIngresos", "X")]
+dataset2 <- result[, c("RangoIngresos", 2)]
+
+head(dataset2)
+
+colnames(result)
 
 
 # Define income range boundaries based on representative values
@@ -692,6 +716,14 @@ income_ranges <- cut(ing_anual_x_hogar$ing_total,
                      include.lowest = TRUE)
 
 income_ranges
+
+# Assuming 'income_ranges' is your factor variable
+incomelabel_array <- as.array(as.character(income_ranges))
+nrow(incomelabel_array)
+
+
+
+
 
 # Create a table of counts by income range
 income_counts <- table(income_ranges)
@@ -707,11 +739,22 @@ colnames(income_counts_df) <- c("RangoIngresos", "Frecuen")
 # Print the result
 print(income_counts_df)
 
+#CREATE CSV FILE
+
+write.csv(income_counts_df, file = "IngAnualFrec.csv", row.names = FALSE, col.names = TRUE)
+
+head(income_counts_df)
+
 
 # Create a barplot of income range counts
 barplot(income_counts_df$Frecuen, names.arg = income_counts_df$RangoIngresos, 
         main = "Distribucion de ingresos", xlab = "Categorias de ingresos", ylab = "Frecuen.",
         col = "lightblue", border = "black")
+
+
+nrow(income_ranges)
+
+nrow(ing_anual_x_hogar)
 
 
 # 2 - Frecuencia de tipos de ingresos diferentes al de trabajo
@@ -731,7 +774,19 @@ colnames(selected_data) <- new_column_names
 income_frequency <- colSums(selected_data[,])
 
 # Print the result
-print(income_frequency)
+class(income_frequency)
+length(income_frequency)
+
+#Turn it into dataframe
+income_df <- data.frame(
+  "TiposDeIngresos" = names(income_frequency),
+  "Frecuencia" = as.numeric(income_frequency)
+  )
+
+income_df
+
+#SAVE THE DATA INTO A CSV
+write.csv(income_df, file = "FrecuIngresos.csv", row.names = FALSE)
 
 # Create a pie chart
 pie(income_frequency, labels = names(income_frequency), main = "Ingresos diferentes al laboral")

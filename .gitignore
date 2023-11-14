@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+**/Cleaning/datos/
+**/Backend/keys.py
+**/Backend/index.py

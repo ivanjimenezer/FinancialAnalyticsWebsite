@@ -1075,6 +1075,9 @@ gpo1 <- sum(aggregate(tmp_hogar1[,c("aux1")],by = list(tmp_hogar1$LlaveHO), FUN 
 gpo2 <- sum(aggregate(tmp_hogar1[,c("aux2")],by = list(tmp_hogar1$LlaveHO), FUN = sum, na.rm=TRUE)$x)/1000000 # obtener on df agrupado por hogar
 nofinan <- rbind(nofinan, c(2, "-Deuda", gpo1, gpo2))
 
+
+head(tmp_hogar1)
+
 # CREACION DEL DATASET
 # columna de deusas
 rel_ingxdeuda <- tmp_hogar1[, c("LlaveHO", "mto_ctot")]
@@ -1090,7 +1093,7 @@ ing_anual <- read.csv(file = "ingresoanual.csv", header=TRUE, sep=",", colClasse
 ingreso_men <- ing_anual[, c("llaveho", "ingxtrab")]
 ingreso_men$ingxtrab <- as.numeric(ingreso_men$ingxtrab)
 
-str(ingreso_men)
+head(ingreso_men)
 
 #ingreso_men <- data.frame(llaveho = ing_anual$llaveho, ingxtrab = ing_anual$ingxtrab / 12)
 ingreso_men$ingxtrab <- ingreso_men$ingxtrab / 12
@@ -1150,7 +1153,28 @@ inf_indices
 # --------------------------------------------------------------
 # ******************************************************
 # ****Riqueza Neta
-tmp_hogar1$riq_net <- tmp_hogar1$val_nofin + tmp_hogar1$val_finan - tmp_hogar1$mto_ctot
+Deuda <-   tmp_hogar1$mto_ctot
+riqueza  <- tmp_hogar1$val_nofin + tmp_hogar1$val_finan
+
+Rel_RiqxDeu <- data.frame(
+  Riqueza = riqueza,
+  Deuda = Deuda
+)
+
+head(Rel_RiqxDeu)
+# Create a scatterplot
+plot(Rel_RiqxDeu$Riqueza, Rel_RiqxDeu$Deuda, 
+     main = "Relacion entre Riqueza y deudas",  # Title of the plot
+     xlab = "Riqueza Finan y No Finan",             # Label for the x-axis
+     ylab = "Deuda total",             # Label for the y-axis
+     pch = 20,                          # Type of point (16 is a filled circle)
+     col = "blue"                       # Color of the points
+)
+
+
+
+
+
 tmp_hogar1$tipo_riq <- ifelse(tmp_hogar1$riq_net < 0, 1, -1)# Hogares con riqueza Negativa
 tmp_hogar1$tipo_riq <- ifelse(tmp_hogar1$riq_net == 0, 2, tmp_hogar1$tipo_riq)# Hogares con riqueza Cero
 tmp_hogar1$tipo_riq <- ifelse(tmp_hogar1$riq_net > 0, 3, tmp_hogar1$tipo_riq)# Hogares con riqueza Positiva
@@ -1189,7 +1213,8 @@ riqueza_df
 colnames(riqueza_df) <- c("RangoRiqueza", "Frecuen")
 
 # Print the result
-print(riqueza_df)
+head(riqueza_df)
+str(riqueza_df)
 
 
 # Create a barplot of income range counts
