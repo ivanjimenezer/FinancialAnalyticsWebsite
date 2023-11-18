@@ -1,11 +1,14 @@
 import pandas as pd 
 import pymysql
-import mysql.connector
 from sqlalchemy import create_engine
+# Archivo en el mismo directorio que contiene la información de conexion al la DB
 from keys import *
 
 #  connect to mysql
-# change variables values from keys.py file
+#  HOST,USER,PASS, etc son variables que estan dentro del archivo keys.py 
+# y son importadas para mantener en secreto los datos al subirlos a git
+
+# objeto para la conexion a la DB
 conn = pymysql.connect(
     host=HOST,
     user=USER,
@@ -16,6 +19,7 @@ conn = pymysql.connect(
 )
 engine = create_engine(f"mysql+pymysql://{USER}:{PASS}@{HOST}:{3306}/{DB}?charset=utf8")
 
+#Creacion de datasets desde archivos csv
 
 # create DATASETS
 df1 = pd.read_csv("../Cleaning/TipoDeudaPro.csv", encoding='utf-8')
@@ -78,6 +82,8 @@ print(df5.head())
 #     Frecuencia INT
 #     );
 print("---------------------------------------------")
+
+# Insercion de datos a la BD desde el dataset
 # INSERT THE DATA INTO THE MYSQL TABLE
 
 # TIPO DE DEUDA INTO 
