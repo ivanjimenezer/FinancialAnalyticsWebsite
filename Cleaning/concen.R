@@ -100,9 +100,12 @@ countuni <- function(column){
   #--------------------#--------------------#--------------------#--------------------#--------------------
 selcon <- data.frame(folio = tmp_con$FOLIO
                      ,NumPersHog=tmp_con$CAT_TAMHOG
-                    ,NoED=tmp_con$NoED, EDBasic=tmp_con$EDBasic, EDMedia=tmp_con$EDMedia, EDLic=tmp_con$EdLic,EDPost=tmp_con$EDPost ,EDNoesp=tmp_con$EDNoesp
-                     ,NoTienViv=tmp_con$NoTienHogar, VivPagada=tmp_con$VivPagada, VivPagan=tmp_con$VivPagan, VivRent=tmp_con$VivRent,VivOther=tmp_con$VivOther
-                     ,NoOcup=tmp_con$NoOcup ,Empleado=tmp_con$Empleado ,Jornalero=tmp_con$Jornalero ,Patron=tmp_con$Patrón ,Emprend=tmp_con$Emprendedor, FamWorker=tmp_con$FamWorker
+                     ,NoED=tmp_con$NoED, EDBasic=tmp_con$EDBasic, EDMedia=tmp_con$EDMedia
+                     ,EDLic=tmp_con$EdLic,EDPost=tmp_con$EDPost ,EDNoesp=tmp_con$EDNoesp
+                     ,NoTienViv=tmp_con$NoTienHogar, VivPagada=tmp_con$VivPagada, VivPagan=tmp_con$VivPagan
+                     ,VivRent=tmp_con$VivRent,VivOther=tmp_con$VivOther
+                     ,NoOcup=tmp_con$NoOcup ,Empleado=tmp_con$Empleado ,Jornalero=tmp_con$Jornalero 
+                     ,Patron=tmp_con$Patrón ,Emprend=tmp_con$Emprendedor, FamWorker=tmp_con$FamWorker
                      ,MontCuentNomi=tmp_con$V_NOMPEN, MontCuentAhorro=tmp_con$V_CTACHQS
                      ,TienActivFin=tmp_con$CACVO_FIN, MontCuentGob=tmp_con$V_CTAGOB 
                      ,MontCuentInv=tmp_con$V_PRVINVR, MontCuentAfore=tmp_con$V_AFORE 
@@ -358,8 +361,9 @@ write.csv(df_cleaned, file = "ML_Dataset.csv", row.names = FALSE)
 
 # OBTENER DATOS PARA REALIZAR LOS MODELOS
 
-#Predicción de la capacidad de pago: El sistema debe poder predecir la capacidad de pago de un cliente,
-#utilizando los siguientes datos:
+# Predicción de la capacidad de pago: 
+# El sistema debe poder predecir la capacidad de pago de un cliente
+# utilizando los siguientes datos:
 #Ingresos
 #Gastos
 #Activos

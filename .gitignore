@@ -4,5 +4,6 @@
 .Ruserdata
 **/Cleaning/datos/*
 **/Backend/keys.py
+**/Backend/venv2/*
 **/Backend/index.py
 **/Backend/practicas/*

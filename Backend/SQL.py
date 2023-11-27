@@ -17,6 +17,7 @@ conn = pymysql.connect(
     port=3306,
     charset='utf8'
 )
+
 engine = create_engine(f"mysql+pymysql://{USER}:{PASS}@{HOST}:{3306}/{DB}?charset=utf8")
 
 #Creacion de datasets desde archivos csv
@@ -90,28 +91,26 @@ print("---------------------------------------------")
 # Assuming 'Deuda' and 'Porcentaje' are the columns in your DataFrame 'df1'
 # Assuming 'df1' is your DataFrame
 df1.rename(columns={'TipoDeuda': 'Deuda',"%":"Porcentaje"}, inplace=True)  # Renaming 'Deuda' to match 'Tipo Deuda' in MySQL
-
-#df1.to_sql('TipoDeuda', con=engine, if_exists='append', index=False)
+df1.to_sql('TipoDeuda', con=engine, if_exists='append', index=False)
  
  
 #INGRESO ANUAL POR GRUPOS
 df2.rename(columns={'RangoIngresos': 'RangoIngreso',"Frecuen":"Frecuencia"}, inplace=True)  # Renaming 'Deuda' to match 'Tipo Deuda' in MySQL
 # print(df2)
-#df2.to_sql('IngreAnualDist', con=engine, if_exists='append', index=False)
+df2.to_sql('IngreAnualDist', con=engine, if_exists='append', index=False)
  
 
 # Ingresos diferentes al salario
 df3.rename(columns={'TiposDeIngresos': 'IngresosTipos',"Frecuen":"Frecuencia"}, inplace=True)  # Renaming 'Deuda' to match 'Tipo Deuda' in MySQL
-#df3.to_sql('OtrosIngresos', con=engine, if_exists='append', index=False)
+df3.to_sql('OtrosIngresos', con=engine, if_exists='append', index=False)
 
 # Relacion ENTRE DEUDA E INGRESO
-#df4.to_sql('RelaIngreDeuda', con=engine, if_exists='append', index=False)
+df4.to_sql('RelaIngreDeuda', con=engine, if_exists='append', index=False)
 
 # Distribucion de riqueza - DistRiqueza
 df5.rename(columns={'RangoRiqueza': 'Rangos',"Frecuen":"Frecuencia"}, inplace=True)  # Renaming 'Deuda' to match 'Tipo Deuda' in MySQL
 print(df5)
-
-#df5.to_sql('DistRiqueza', con=engine, if_exists='append', index=False)
+df5.to_sql('DistRiqueza', con=engine, if_exists='append', index=False)
 
 
  

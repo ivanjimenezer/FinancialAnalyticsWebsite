@@ -1,0 +1,16 @@
+Flask<=2.0.0
+requests>=2.25.0,<3.0.0
+mysql.connector<=2.2.9
+sqlalchemy<=1.4.39
+pandas>=2.0.0
+pymysql>= 1.0.0
+scikit-learn==1.3.0
+matplotlib==3.7.2
+numpy==1.24.3
+pymysql
+seaborn
+joblib
+flask_cors
+flask_session
+flask_sqlalchemy
+flask_bcrypt
