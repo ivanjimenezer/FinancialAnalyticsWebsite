@@ -1,4 +1,4 @@
-# Import flask and datetime module for showing date and time
+# Moudulos y librerias a importar
 import os
 from flask import Flask, render_template, request, url_for, redirect,jsonify
 import datetime
@@ -29,7 +29,7 @@ def get_table_data(cursor, table_name):
     except Exception as ex:
         print(f'Error fetching data for {table_name}: {ex}')
         return None
-
+# RUTA PARA OBTENER LOS DATOS DE LAS TABLAS
 @app.route('/dataplot')
 def dataplots():
     data={}
@@ -53,14 +53,16 @@ def dataplots():
         msn =  f'Error: {ex}'
         print(msn)
         data['mensaje'] = 'Error fetching data from the databasev2: ' + msn
+    # SE RETORNA UN ARCHIVO JSON CON LOS DATOS
     return jsonify(data)
 
 
 # Route for seeing a data
+# 
 @app.route('/')
 def index():
 
-    return render_template('index.html')
+    return render_template('../Frontend/index.html')
 
 	
 # Running app
