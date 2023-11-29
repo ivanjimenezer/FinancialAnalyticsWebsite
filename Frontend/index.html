@@ -5,7 +5,7 @@
 <div>
 <form action="/result" method="POST">
 	<label for="age">Age</label>
-	<input type="text" id="age" name="age">
+	<input type="text" id="age" name="age" pattern="\d+" title="Please enter a valid number" required>
 	<br>
 	<label for="w_class">Working Class</label>
 	<select id="w_class" name="w_class">
