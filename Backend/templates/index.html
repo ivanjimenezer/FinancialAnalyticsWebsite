@@ -1,11 +1,70 @@
-{% extends './layout.html'%}
+<html>
+<body>
+	<h3>¿A que grupo de clientela pertenece?</h3>
+<div>	
+<form action="/result" method="POST">
+	<label for="age">Edad</label>
+	<input type="text" id="age" name="age" pattern="\d+" title="Por favor Ingresa un numero valido" required>
+	<br>
+	<label for="ed_level">Nivel de Educación</label>
+	<select id="ed_level" name="ed_level">
+	<option value="0">Sin Educación</option>
+	<option value="1">Educación Basica</option>
+	<option value="2">Sin especificar</option>
+	<option value="3">Educación Media</option>
+	<option value="4">Licenciatura o Superior</option>
+	<option value="5">Educación Posgrado</option>
+	</select>
+	<br>
 
-{% block title %}
+	<label for="work">¿Trabaja?</label>
+	<select id="work" name="work">
+	<option value="1">Si</option>
+	<option value="0">No</option>
+	</select>
+	<br>
+	<label for="empren">¿Es emprendedor ?</label>
+	<select id="empren" name="empren">
+	<option value="1">Si</option>
+	<option value="0">No</option>
+	</select>
+	<br>
 
-{% endblock %} 
+	<label for="IngreTot">Ingreso Total Anual $</label>
+	<input type="text" id="IngreTot" name="IngreTot"pattern="\d+" title="Por favor Ingresa un número valido" required>
+	<br>
 
-{%block body%}
-<h1> IVANJIMENEZER v5 </h1>
+	<label for="ValVentVehic">Valor de venta de su Vehiculo $</label>
+	<input type="text" id="ValVentVehic" name="ValVentVehic"pattern="\d+" title="Por favor Ingresa un número valido" required>
+	<br>
 
+	<label for="ValVentActivNoFin">Valor de venta total de sus Activos Financieros $</label>
+	<input type="text" id="ValVentActivNoFin" name="ValVentActivNoFin" pattern="\d+" title="Por favor Ingresa un número valido" required>
+	<br>
 
-{%endblock%}
+	<label for="MontCuentAhorroInf">Monto en Cuenta de Ahorro e Inversiones $</label>
+	<input type="text" id="MontCuentAhorroInf" name="MontCuentAhorroInf" pattern="\d+" title="Por favor ingresa un número válido" required>
+	<br>
+	
+	<label for="MontDeudCredBanc_Depar">Monto Deuda Crédito Bancario y Departamental $</label>
+	<input type="text" id="MontDeudCredBanc_Depar" name="MontDeudCredBanc_Depar" pattern="\d+" title="Por favor ingresa un número válido" required>
+	<br>
+	
+	<label for="MontCuentInv">Monto en Cuenta de Inversiones $</label>
+	<input type="text" id="MontCuentInv" name="MontCuentInv" pattern="\d+" title="Por favor ingresa un número válido" required>
+	<br>
+	
+	<label for="MontDeudCredNoHip">Monto Deuda Crédito No Hipotecario $</label>
+	<input type="text" id="MontDeudCredNoHip" name="MontDeudCredNoHip" pattern="\d+" title="Por favor ingresa un número válido" required>
+	<br>
+	
+	<label for="MontDeudCredViv">Monto Deuda Crédito Vivienda $</label>
+	<input type="text" id="MontDeudCredViv" name="MontDeudCredViv" pattern="\d+" title="Por favor ingresa un número válido" required>
+	<br>
+
+	<input type="submit" value="Enviar">
+
+</form>
+</div>
+</body>
+</html>
