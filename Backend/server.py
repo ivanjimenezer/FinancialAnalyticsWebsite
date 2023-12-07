@@ -1,13 +1,16 @@
 # Moudulos y librerias a importar
 import os
 from flask import Flask, render_template, request, url_for, redirect,jsonify
-import datetime
+from datetime import datetime, timedelta
 import mysql.connector
+from data_fetcher import get_dollar_prices, store_dollar_prices, get_dollar_time_series
+
+
 import joblib
 import plotly.express as px
 import numpy as np
 
-x = datetime.datetime.now()
+x = datetime.now()
 
 # We initialize the flask app with an instance using the  object app
 app=Flask(__name__, static_folder='static', template_folder='templates')
@@ -66,6 +69,50 @@ def result():
 
         return jsonify({'resultado': prediction}) 
 
+# Actializamos el precio de los dolares en la BD
+@app.route('/update_dollar_price')
+def update_dollar_price():
+    cursor = conexion.cursor()
+    # Get dollar price and store it in the database
+    dollar_price = get_dollar_prices()
+    if dollar_price is not None:
+        store_dollar_prices(cursor, dollar_price)
+
+    return jsonify({'message': 'Dollar price updated successfully'})
+
+# Ruta para obtener la serie de tiempo del precio del dolar
+@app.route('/dollar_time_series')
+def dollar_time_series():
+    try:
+        cursor = conexion.cursor()
+        # Fetch the dollar time series data from the database
+        time_series_data = get_dollar_time_series(cursor)
+
+        if time_series_data:
+            return jsonify({'dollar_time_series': time_series_data})
+        else:
+            return jsonify({'message': 'Dollar time series data not available'})
+    except Exception as ex:
+        return jsonify({'error': str(ex)})
+
+# Ruta para obtener el precio del dolar del dia de hoy
+@app.route('/get_dollar_price_today')
+def get_dollar_price_today():
+    try:
+        cursor = conexion.cursor()
+        # Fetch the dollar price from the database for today
+        today_date = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
+        sql_get_price = f"SELECT price FROM dollar_prices WHERE date = '{today_date}'"
+        print(today_date)
+        cursor.execute(sql_get_price)
+        result = cursor.fetchone()
+        #in python I want to transform this format 2023-11-03
+        if result:
+            return jsonify({'dollar_price': result[0]})
+        else:
+            return jsonify({'message': 'Dollar price not available for today'})
+    except Exception as ex:
+        return jsonify({'error': str(ex)})
 
 # RUTA PARA OBTENER LOS DATOS DE LAS TABLAS
 @app.route('/dataplot')
