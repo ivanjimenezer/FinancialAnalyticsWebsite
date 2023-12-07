@@ -18,7 +18,7 @@ conn = pymysql.connect(
     charset='utf8'
 )
 
-engine = create_engine(f"mysql+pymysql://{USER}:{PASS}@{HOST}:{3306}/{DB}?charset=utf8")
+engine = create_engine(f"mysql+pymysql://{USER}:{PASS}@{HOST}:{3307}/{DB}?charset=utf8")
 
 #Creacion de datasets desde archivos csv
 

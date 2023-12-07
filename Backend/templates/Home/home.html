@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/img/css/style.css' ) }}">
+
+    <title>HAFIN</title>
+</head>
+<body>
+    <header>
+        <h1 class="h1Name">HAFIN</h1>
+        <p class="pSlogan">Herramienta de Análisis Financiero</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#acerca">Acerca de</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+    </nav>
+    <div id="inicio" class="welcome">
+        <div class="logo">
+            <img style="margin-top: 65px; width: 500px; height: 150px;" src="static\img\logo.png" />
+        </div>
+        <div class="resumen">
+            <h2>La posibilidd económica a un click</h2>
+            <p>En HAFIN, nos comprometemos a impulsar una economía más inclusiva y equitativa a través de nuestra herramienta innovadora de análisis económico y clasificación. Nuestra misión es proporcionar a individuos y comunidades las herramientas necesarias para comprender y mejorar su posición económica, contribuyendo así al bienestar general.
+            </p>
+        </div>
+    </div>
+    <div id="acerca" class="us">
+        <div class="mision">
+            <p>MISION</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia corporis beatae dolorem ipsam vitae ullam excepturi nisi, ut asperiores modi debitis obcaecati magnam maiores laudantium consequatur quibusdam vero, cumque voluptatem?</p>
+            <img style=" width: 450px; height: 300px;" src="static\img\mision.jpg" />
+        </div>
+        <div class="vision">
+            <img style=" width: 400px; height: 200px;" src="static\img\vision.jpg" /><br>
+            <p>VISION</p>
+            <p>Aspiramos a ser líderes en el desarrollo de soluciones tecnológicas que permitan una distribución más justa de los recursos económicos y brinden a cada individuo la oportunidad de alcanzar su máximo potencial.</p>
+            <!-- Valores Principales:
+                
+                Equidad: Nos esforzamos por reducir las disparidades económicas y brindar oportunidades a aquellos que históricamente han enfrentado desafíos económicos.
+                
+                Transparencia: Creemos en la transparencia y la accesibilidad de la información económica. Nuestra herramienta proporciona análisis claros y comprensibles para empoderar a los usuarios.
+                
+                Innovación: Buscamos continuamente formas innovadoras de utilizar la tecnología para mejorar la comprensión y gestión de la economía, adaptándonos a un mundo en constante cambio. -->
+        </div>
+    </div>
+    <div id="servicios" class="aplicaciones">
+        <p>Por qué usar HAFIN</p><br>
+        <p>HAFIN rompe paradigmas y proporciona análisis a la población mexicana para dar luz con patrones y similitudes demográficas con respecto a su estado financiero. </p>
+        <div style="align-items: center; margin: 20px;">
+            <a style="color: #2c3e58; text-decoration: none;" href="{{ url_for('mexico') }}">Echa un vistazo</a>
+        </div>
+        
+    </div>
+    <div  class="prueba">
+        <div>
+            <a style="color: #fff;
+            text-decoration: none;" href="{{ url_for('login') }}">EMPIEZA YA</a>
+        </div>
+    </div>
+    <div class="testimonios">
+        <p>Esto es lo que dicen nuestros clientes</p>
+        <p>- Soraya Montenegro</p>
+        <p>"HAFIN ha sido mi compañero confiable en el viaje hacia una salud financiera sólida. Lo recomiendo a donde vaya." </p>
+    </div>
+
+    <footer >
+        <div class="column">
+            <h3>Empresa</h3>
+            <p>Nosotros</p>
+            <p>Prueba</p>
+        </div>
+
+        <div class="column">
+            <h3 style="font-size: small;">Contacto</h3>
+            <div class="social-icons">
+                <a href="#" target="_blank">Facebook</a>
+                <a href="#" target="_blank">Twitter</a>
+                <a href="#" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="column">
+            <h3>Derechos Reservados</h3>
+            <p class="copyright">© 2023 HAFIN. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+      
+</body>
+</html>
