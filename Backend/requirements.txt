@@ -1,5 +1,5 @@
 Flask<=2.0.0
-requests>=2.25.0,<3.0.0
+requests
 mysql.connector<=2.2.9
 sqlalchemy<=1.4.39
 pandas>=2.0.0
@@ -8,6 +8,7 @@ scikit-learn
 matplotlib==3.7.2
 numpy==1.24.3
 pymysql
+yfinance
 seaborn
 joblib
 flask_cors
