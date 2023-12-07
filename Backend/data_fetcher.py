@@ -52,6 +52,26 @@ def get_dollar_price():
     db_connection.close()
     return dollar_prices
 
+
+def get_dollar_time_series(cursor):
+    try:
+        # Fetch the dollar time series data from the database
+        sql_get_time_series = "SELECT date, price FROM dollar_prices"
+        cursor.execute(sql_get_time_series)
+        time_series_data = cursor.fetchall()
+
+        # Convert the result into a dictionary for easier serialization to JSON
+        time_series_dict = {'date': [], 'price': []}
+        for date, price in time_series_data:
+            time_series_dict['date'].append(date.strftime('%Y-%m-%d'))
+            time_series_dict['price'].append(price)
+
+        return time_series_dict
+    except Exception as ex:
+        print(f'Error fetching time series data: {ex}')
+        return None
+
+
 def store_dollar_prices(cursor, dollar_prices):
 
     try:

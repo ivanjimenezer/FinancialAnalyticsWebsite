@@ -3,7 +3,8 @@ import os
 from flask import Flask, render_template, request, url_for, redirect,jsonify
 from datetime import datetime, timedelta
 import mysql.connector
-from data_fetcher import get_dollar_prices, store_dollar_prices
+from data_fetcher import get_dollar_prices, store_dollar_prices, get_dollar_time_series
+
 
 import joblib
 import numpy as np
@@ -75,6 +76,21 @@ def update_dollar_price():
         store_dollar_prices(cursor, dollar_price)
 
     return jsonify({'message': 'Dollar price updated successfully'})
+
+# Ruta para obtener la serie de tiempo del precio del dolar
+@app.route('/dollar_time_series')
+def dollar_time_series():
+    try:
+        cursor = conexion.cursor()
+        # Fetch the dollar time series data from the database
+        time_series_data = get_dollar_time_series(cursor)
+
+        if time_series_data:
+            return jsonify({'dollar_time_series': time_series_data})
+        else:
+            return jsonify({'message': 'Dollar time series data not available'})
+    except Exception as ex:
+        return jsonify({'error': str(ex)})
 
 # Ruta para obtener el precio del dolar del dia de hoy
 @app.route('/get_dollar_price_today')
